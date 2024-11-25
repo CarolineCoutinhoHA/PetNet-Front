@@ -1,0 +1,232 @@
+/* Estilos para o Carrossel */
+.carousel {
+    position: relative;
+    padding: 30px 0;
+    background-color: #fff;
+    max-width: 95%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilos para o Slide */
+  .carousel-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 500px; /* Aumentando o contêiner */
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 100%; /* Ajusta a imagem ao novo tamanho */
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+/* Estilos para o conteúdo do slide */
+.carousel-slide-content {
+  position: absolute;
+  left: 5%; /* Mantém o posicionamento mais à esquerda */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 10;
+  padding: 15px 20px; /* Diminui o padding para reduzir o espaçamento interno */
+  background: rgba(0, 0, 0, 0.7); /* Fundo mais escuro para melhor contraste */
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Gradiente sutil */
+  border-radius: 10px; /* Bordas mais suavizadas */
+  max-width: 28%; /* Ajuste para uma largura menor */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombras mais suaves */
+  animation: fadeIn 0.5s ease-out;
+  transition: transform 0.3s ease; /* Transição ao mover o conteúdo */
+}
+  
+  /* Título do slide */
+  .carousel-slide-content h2 {
+    font-size: 2.8rem; /* Tamanho equilibrado */
+    font-weight: 600; /* Peso mais leve para um visual mais sofisticado */
+    margin-bottom: 15px; /* Menor margem para um efeito mais delicado */
+    line-height: 1.4; /* Aumento do espaçamento entre linhas para melhor legibilidade */
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave para destacar sem exageros */
+    letter-spacing: 0.3px; /* Suaviza o espaçamento das letras */
+    font-family: 'Merriweather', serif; /* Fonte serifada elegante */
+    color: #ffffff; /* Cor sólida e suave para um contraste mais suave */
+}
+
+  
+  /* Descrição do slide */
+  .carousel-slide-content p {
+    font-size: 1.4rem; /* Tamanho de fonte maior para legibilidade */
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #f4f4f4;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.4); /* Sombra suave */
+    font-family: 'Lora', serif; /* Fonte serifada para um toque mais sofisticado */
+  }
+  
+  /* Botão */
+  .carousel-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(90deg, #6db1df, #268dd1); /* Gradiente suave */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px; /* Bordas arredondadas */
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 15px rgba(255, 82, 82, 0.3); /* Sombras mais fortes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .carousel-button:hover {
+    transform: translateY(-5px); /* Eleva o botão ao passar o mouse */
+    box-shadow: 0 12px 20px rgba(255, 82, 82, 0.5); /* Sombra mais forte no hover */
+    background: linear-gradient(90deg, #ff9752, #f7731b); /* Muda o gradiente */
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  /* Animação para fade-in */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .carousel-slide-content p {
+    font-size: 1.2rem; /* Texto maior */
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-button {
+    padding: 12px 25px;
+    background-color: #f76c6c;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .carousel-button:hover {
+    background-color: #e15c5c;
+    transform: scale(1.05);
+  }
+  
+  /* Bolinhas de Navegação */
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Maior espaço entre as bolinhas */
+  }
+  
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .dot.active {
+    background-color: #f76c6c;
+    transform: scale(1.3); /* Destaque maior */
+  }
+  
+  /* Setinhas de Navegação */
+  .carousel-arrow {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    color: #f76c6c;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .carousel-arrow:hover {
+    color: #e15c5c;
+    transform: scale(1.2);
+  }
+  
+  .carousel-arrow svg {
+    width: 50px;
+    height: 50px;
+    fill: currentColor;
+  }
+  
+  /* Animação de Fade */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .carousel {
+      max-width: 100%;
+    }
+  
+    .carousel-slide {
+      height: 350px; /* Altura reduzida para telas menores */
+    }
+  
+    .carousel-slide-content {
+      max-width: 80%;
+      left: 10%;
+      padding: 15px;
+    }
+  
+    .carousel-slide-content h2 {
+      font-size: 1.8rem;
+    }
+  
+    .carousel-slide-content p {
+      font-size: 1rem;
+    }
+  
+    .carousel-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  
+    .carousel-arrow svg {
+      width: 30px;
+      height: 30px;
+    }
+  
+    .dot {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  
