@@ -1,3 +1,0 @@
-# PetNet-Front
-
-O Petnet é uma aplicação web desenvolvida que ajuda a modernizar e simplificar o processo de adoção. O objetivo é gerenciar de forma eficiente os dados dos animais disponíveis para adoção, facilitar o cadastro de interessados e monitorar o processo de adoção. O sistema permite o cadastro e visualização de pets, o registro de adotantes e o acompanhamento de adoções, proporcionando uma experiência mais acessível e organizada tanto para o abrigo quanto para os adotantes.
