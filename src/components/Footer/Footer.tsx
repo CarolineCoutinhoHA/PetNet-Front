@@ -1,5 +1,5 @@
 import './Footer.css';
-import logoPet from '../assets/logo.png';
+import logoPet from '../../assets/logo.png';
 
 const Footer = () => {
   return (

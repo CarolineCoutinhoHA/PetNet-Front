@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import "./Testimonials.css";
 
 // Importando as imagens da pasta assets
-import mariaFoto from '../assets/MariSilva.jpg';
-import joaoFoto from '../assets/JoaoSantos.jpg';
-import anaFoto from '../assets/AnaCosta.jpg';
-import carlosFoto from '../assets/CarlosPereira.jpg';
+import mariaFoto from '../../assets/MariSilva.jpg';
+import joaoFoto from '../../assets/JoaoSantos.jpg';
+import anaFoto from '../../assets/AnaCosta.jpg';
+import carlosFoto from '../../assets/CarlosPereira.jpg';
 
 const testimonialsData = [
   {

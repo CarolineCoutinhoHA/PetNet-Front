@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AdotantesForm.css';
-import logoPet from '../assets/pets1.png';  // Importando a imagem diretamente
+import logoPet from '../../assets/pets1.png';  // Importando a imagem diretamente
 
 const AdotantesForm: React.FC = () => {
   const [adotante, setAdotante] = useState({

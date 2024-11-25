@@ -1,9 +1,9 @@
 import React from 'react';
 import './Fluxogram.css';
-import passo1 from '../assets/passo2.jpg';
-import passo2 from '../assets/passo4.jpg';
-import passo3 from '../assets/passo7.jpg';
-import passo4 from '../assets/passo5.jpg';
+import passo1 from '../../assets/passo2.jpg';
+import passo2 from '../../assets/passo4.jpg';
+import passo3 from '../../assets/passo7.jpg';
+import passo4 from '../../assets/passo5.jpg';
 
 const Fluxogram: React.FC = () => {
   return (

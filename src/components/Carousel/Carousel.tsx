@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import './Carousel.css';
 
 // Importando as imagens da pasta assets
-import image1 from './../assets/carrossel.png';
-import image2 from './../assets/carrossel6.png';
-import image3 from './../assets/carrossel5.png';
+import image1 from '../../assets/carrossel.png';
+import image2 from '../../assets/carrossel6.png';
+import image3 from '../../assets/carrossel5.png';
 
 const Carousel: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);

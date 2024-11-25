@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'; // Importando Link para rotas
 import './Header.css';
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -31,7 +31,7 @@ const Header: React.FC = () => {
           <a href="#adoption-flow">Como Adotar</a>
           <a href="#testimonials">Depoimentos</a>
           <a href="#footer">Contato</a>
-          <Link to="/cadastro-adotantes">Cadastro de Adotantes</Link>
+          <Link to="/login">Login</Link>
         </nav>
       </div>
     </header>

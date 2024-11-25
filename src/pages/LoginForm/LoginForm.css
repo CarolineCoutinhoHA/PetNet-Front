@@ -1,0 +1,109 @@
+/* LoginForm.css */
+
+/* Corpo e container geral */
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-form-container {
+    flex: 1; /* Faz o container crescer para preencher o espaço disponível */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o formulário ao topo */
+    padding: 20px;
+    background-color: #eaeef3; /* Alterado para diferenciar do AdotantesForm */
+  }
+  
+  .form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 450px; /* Reduzido para login */
+    width: 100%;
+    margin-top: 40px; /* Maior espaçamento do topo */
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Cor mais neutra */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #555; /* Texto mais suave */
+  }
+  
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background-color: #f9f9f9; /* Fundo claro */
+  }
+  
+  /* Botões */
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button[type="button"] {
+    background-color: #2196f3;
+  }
+  
+  button[type="button"]:hover {
+    background-color: #0b7dda;
+  }
+  
+  /* Estilos para a imagem */
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+  }
+  
+  .login-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    filter: grayscale(20%); /* Leve tom preto e branco */
+  }
+  
+  /* Rodapé */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto; /* Faz o footer "grudar" no final da página */
+  }
+  

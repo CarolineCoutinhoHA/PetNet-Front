@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css'; // Importando o CSS da seção "Sobre"
-import aboutImage from '../assets/about.jpg'; // Imagem para a seção "Sobre"
+import aboutImage from '../../assets/about.jpg'; // Imagem para a seção "Sobre"
 
 const About: React.FC = () => {
   return (
