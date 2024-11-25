@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Contêiner principal do Footer */
+.footer-container {
+  background-color: #ff9d00;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  width: 100vw; /* Ocupa a largura total da janela */
+  margin: 0; /* Remove margens extras */
+  padding: 0; /* Remove padding que pode atrapalhar */
+  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+}
+
+/* Conteúdo principal do Footer */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; /* Define um limite para o conteúdo interno */
+  width: 100%; /* O conteúdo interno ocupa toda a largura disponível */
+  padding: 0 20px; /* Espaçamento interno para evitar que o texto encoste nas bordas */
+  margin-bottom: 30px;
+}
+
+/* Seção de logo e descrição */
+.footer-logo-description {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  flex: 1;
+}
+
+.footer-logo img {
+  width: 80px;
+  height: 80px;
+}
+
+.footer-description {
+  margin-left: 20px;
+  font-size: 16px;
+  color: #ffffff;
+  max-width: 350px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Links úteis no footer */
+.footer-links {
+  display: flex;
+  gap: 25px;
+  flex: 1;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #a911f0;
+}
+
+/* Seção de redes sociais e email */
+.footer-social-email {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ajusta ao tamanho total do footer */
+  max-width: 1200px; /* Limita a largura para evitar que fique muito esticado */
+  margin-top: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  font-size: 25px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #a911f0;
+}
+
+.footer-email a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-email a:hover {
+  color: #a911f0;
+}
+
+/* Linha inferior do Footer */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 300;
+  width: 100%; /* Ajusta ao tamanho total */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-social-email {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo-description {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .footer-description {
+    margin-left: 0;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .footer-social {
+    margin-top: 15px;
+  }
+}
