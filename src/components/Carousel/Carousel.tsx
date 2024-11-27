@@ -16,14 +16,14 @@ const Carousel: React.FC = () => {
       title: "Adote um Pet",
       description: "Encontre o seu novo amigo e faça a diferença na vida de um animal.",
       buttonText: "Adotar Agora",
-      buttonLink: "/adocao",
+      buttonLink: "/pets",
     },
     {
       src: image2,
       title: "Fazendo a Diferença",
       description: "Com a sua adoção, você ajuda a mudar a vida de um pet abandonado.",
       buttonText: "Adotar Agora",
-      buttonLink: "/adocao",
+      buttonLink: "/pets",
     },
     {
       src: image3,
