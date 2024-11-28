@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Para redirecionar
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 import logoPet from '../../assets/pets1.png';
 
@@ -7,9 +7,10 @@ const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
+    userType: 'adotante', // Valor padrão: adotante
   });
 
-  const navigate = useNavigate(); // Hook para navegação
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,12 +23,19 @@ const LoginForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Login data:', loginData);
-    alert('Login realizado com sucesso!');
-    setLoginData({ email: '', password: '' });
+
+    // Redirecionamento com base no tipo de usuário
+    if (loginData.userType === 'adotante') {
+      navigate('/dashboard-adotante');
+    } else {
+      navigate('/dashboard-admin');
+    }
+
+    setLoginData({ email: '', password: '', userType: 'adotante' }); // Resetando o formulário
   };
 
   const redirectToCadastro = () => {
-    navigate('/cadastro-adotantes'); // Redireciona para a rota do formulário de cadastro
+    navigate('/cadastro-adotantes');
   };
 
   return (
@@ -58,6 +66,30 @@ const LoginForm: React.FC = () => {
               required
             />
           </label>
+
+          {/* Grupo de seleção do tipo de usuário */}
+          <div className="checkbox-group">
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="adotante"
+                checked={loginData.userType === 'adotante'}
+                onChange={handleChange}
+              />
+              Adotante
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="userType"
+                value="admin"
+                checked={loginData.userType === 'admin'}
+                onChange={handleChange}
+              />
+              Administrador
+            </label>
+          </div>
 
           <div className="form-buttons">
             <button type="submit">Entrar</button>
