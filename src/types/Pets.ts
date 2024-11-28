@@ -6,7 +6,8 @@ export interface Pet {
   sexo?: string;
   tamanho?: string;
   personalidade?: string;
-  data_nascimento?: Date;
+  data_nascimento?: string;
   descricao?: string;
   status?: string;
+  picture?: string;
 }
