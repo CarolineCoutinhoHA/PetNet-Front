@@ -9,7 +9,7 @@
   align-items: center;
   font-family: 'Poppins', sans-serif;
   width: 100vw; /* Ocupa a largura total da janela */
-  margin: 0; /* Remove margens extras */
+
   padding: 0; /* Remove padding que pode atrapalhar */
   box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
 }

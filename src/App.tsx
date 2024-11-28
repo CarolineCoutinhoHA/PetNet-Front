@@ -10,7 +10,7 @@ import './index.css';
 const App = () => {
   return (
     <Router>
-      <div className="app">
+      <div className="flex flex-col min-h-screen">
         <Header />
         <Routes>
           {/* Página inicial */}
