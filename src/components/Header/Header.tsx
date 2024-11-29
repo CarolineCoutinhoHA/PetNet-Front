@@ -29,8 +29,7 @@ const Header: React.FC = () => {
         <nav>
           <Link to="/">Início</Link> {/* Link atualizado para levar à Landing Page */}
           <a href="#adoption-flow">Como Adotar</a>
-          <a href="#testimonials">Depoimentos</a>
-          <a href="#footer">Contato</a>
+          <a href="#testimonials">Relatos</a>
           <Link to="/login">Login</Link>
         </nav>
       </div>
