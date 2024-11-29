@@ -56,7 +56,7 @@ const Pets = () => {
   };
 
   return (
-    <section className="h-auto flex flex-col items-center bg-petnet-purple">
+    <section className="h-full mt-28 flex flex-col items-center bg-petnet-purple">
       <Filter onButtonClick={handleClearFilters} onSearch={filterPets} />
       <div className="flex flex-wrap gap-4 w-full p-6 justify-center">
         {filteredPets.map((pet) => (

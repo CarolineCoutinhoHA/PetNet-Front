@@ -8,7 +8,7 @@ const Card = ({ pet }: { pet: Pet }) => {
   return (
     <div
     className="bg-petnet-white flex flex-col items-center 
-    justify-start w-full sm:w-2/12 sm:flex-grow-0 p-4 gap-y-2 text-petnet-purple rounded-md"
+    justify-start  w-full sm:w-2/12 sm:flex-grow-0 p-4 gap-y-2 text-petnet-purple rounded-md"
 >
     <img className="w-full h-44 object-cover rounded-md" src={pet.picture} />
     <p className="text-petnet-purple font-medium">{pet.nome}</p>
@@ -27,6 +27,13 @@ const Card = ({ pet }: { pet: Pet }) => {
         <p className="font-bold">Personalidade: <span className="font-normal">{pet.personalidade}</span></p>
         <p className="font-bold">Descrição: <span className="font-normal">{pet.descricao}</span></p>
     </div>
+
+    <div className="mt-auto w-full">
+        <button className="bg-petnet-blue text-white font-semibold rounded-md w-full py-2">
+          Adotar
+        </button>
+      </div>
+
 </div>
 
 

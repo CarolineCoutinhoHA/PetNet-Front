@@ -25,7 +25,7 @@ const Filter: React.FC<FilterProps> = ({ onButtonClick, onSearch }) => {
 
   return (
     <div className="bg-petnet-white border rounded-md p-4 w-6/12 h-max mt-4">
-      <div className="flex gap-4 mt-4">
+      <div className="flex gap-4 mt-4 justify-center">
         <label className="flex items-center">
           <input
             type="radio"
@@ -49,16 +49,17 @@ const Filter: React.FC<FilterProps> = ({ onButtonClick, onSearch }) => {
           Feminino
         </label>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-start space-x-2">
         <input
           type="text"
           value={inputValue}
+          placeholder="Digite sua busca aqui..."
           onChange={handleChange}
-          className="border rounded w-full"
+          className="border rounded w-full bg-petnet-white text-petnet-purple placeholder-gray-50"
         />
         <button
           onClick={handleSearchClick}
-          className="bg-petnet-blue text-white font-semibold rounded"
+          className="bg-petnet-blue text-white font-semibold rounded mt-2"
         >
           Buscar
         </button>
@@ -66,7 +67,7 @@ const Filter: React.FC<FilterProps> = ({ onButtonClick, onSearch }) => {
 
       <button
         onClick={onButtonClick}
-        className="bg-petnet-orange text-white p-2 rounded w-full"
+        className="bg-petnet-orange text-white p-4 rounded"
       >
         Limpar filtros
       </button>
