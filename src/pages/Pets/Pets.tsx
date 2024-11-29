@@ -4,11 +4,14 @@ import {
   getDogPictures,
   getCatPictures,
 } from "../../services/Pets.ts";
-import { Pet } from "../../types/Pets.ts";
 import Card from "../../components/Card/Card.tsx";
+import Filter from "../../components/Filter/Filter.tsx";
+import { Pet } from "../../types/Pets.ts";
 
 const Pets = () => {
   const [pets, setPets] = useState<Pet[]>([]);
+  const [filteredPets, setFilteredPets] = useState<Pet[]>(pets);
+
   const fetchData = useCallback(async () => {
     const data = await getPets();
     const newData = await Promise.all(
@@ -32,10 +35,31 @@ const Pets = () => {
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  useEffect(() => {
+    setFilteredPets(pets);
+  }, [pets]);
+
+  const filterPets = (search: string) => {
+    const petsFiltered = pets.filter((pet) =>
+      (["raca", "especie", "sexo", "status", "tamanho"] as Array<keyof Pet>).some((key) => {
+        const value = pet[key] as string | undefined; // Explicitly cast as string
+        return value?.toLowerCase().includes(search.toLowerCase());
+      })
+    );
+    setFilteredPets(petsFiltered);
+  };
+  
+
+  const handleClearFilters = () => {
+    setFilteredPets(pets);
+  };
+
   return (
-    <section className="h-auto">
-      <div className="flex flex-wrap gap-4 w-full p-4 justify-start">
-        {pets.map((pet) => (
+    <section className="h-auto flex flex-col items-center bg-petnet-purple">
+      <Filter onButtonClick={handleClearFilters} onSearch={filterPets} />
+      <div className="flex flex-wrap gap-4 w-full p-6 justify-center">
+        {filteredPets.map((pet) => (
           <Card key={pet.id} pet={pet} />
         ))}
       </div>
