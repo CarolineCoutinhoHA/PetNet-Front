@@ -50,6 +50,9 @@ const Pets = () => {
     setFilteredPets(petsFiltered);
   };
   
+  const handleAdoption = (id: number) => { // falta fazer o processo de adoção
+    console.log("Id do PET", id);
+  }
 
   const handleClearFilters = () => {
     setFilteredPets(pets);
@@ -60,7 +63,7 @@ const Pets = () => {
       <Filter onButtonClick={handleClearFilters} onSearch={filterPets} />
       <div className="flex flex-wrap gap-4 w-full p-6 justify-center">
         {filteredPets.map((pet) => (
-          <Card key={pet.id} pet={pet} />
+          <Card key={pet.id} pet={pet} onAdoptionClick={handleAdoption} />
         ))}
       </div>
     </section>
