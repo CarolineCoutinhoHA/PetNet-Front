@@ -1,44 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 .benefits-container {
-    padding: 2rem;
-    background-color: #ffffff; /* Fundo branco geral */
-    border-radius: 16px;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1200px; /* Aumentado para 1200px, ajuste conforme necessário */
-    margin: 3rem auto;
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
 }
   
   .benefits-title {
-    font-size: 2rem; /* Tamanho do título */
+    font-size: 2rem;
     font-weight: 600;
-    color: #1d3557; /* Azul escuro */
-    margin-bottom: 1.5rem; /* Ajuste o espaçamento entre o título e a linha */
-    text-align: center; /* Centraliza o texto */
-    display: block; /* Garante que o título ocupe a largura total do container */
-    width: 100%; /* Garante que o título tenha 100% da largura do seu container */
-    position: relative; /* Necessário para a linha ficar bem posicionada */
+    color: #1d3557;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
   }
-  
   
   /* Linha abaixo do título */
   .benefits-title::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -5px; /* Ajuste fino da linha */
-    height: 3px; /* Altura da linha */
-    background-color: #f4a261; /* Cor laranja */
-    width: 100%; /* A linha vai acompanhar a largura do título */
+    bottom: -5px; 
+    height: 3px; 
+    background-color: #f4a261;
+    width: 100%;
   }
   
   .benefits-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; /* Redução no espaçamento entre os containers */
+    gap: 1.5rem;
   }
   
   .benefits-section {
-    padding: 1.5rem; /* Containers menores */
+    padding: 1.5rem;
     background-color: #ffffff;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
@@ -47,13 +44,13 @@
   }
   
   .benefits-section:nth-child(1) {
-    background-color: #f4a261; /* Laranja suave */
-    color: #ffffff; /* Texto branco para contraste */
+    background-color: #f4a261;
+    color: #ffffff;
   }
   
   .benefits-section:nth-child(2) {
-    background-color: #a8dadc; /* Azul claro */
-    color: #1d3557; /* Azul escuro */
+    background-color: #a8dadc;
+    color: #1d3557;
   }
   
   .benefits-section:hover {
@@ -62,7 +59,7 @@
   }
   
   .benefits-section h3 {
-    font-size: 1.4rem; /* Subtítulos menores */
+    font-size: 1.4rem;
     font-weight: 500;
     margin-bottom: 1rem;
   }
@@ -73,27 +70,27 @@
   }
   
   .benefits-section li {
-    font-size: 1rem; /* Texto menor */
-    line-height: 1.8; /* Espaçamento reduzido */
-    margin-bottom: 1rem; /* Espaço entre itens ajustado */
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
   }
   
   .benefits-section li::before {
     content: '✔';
-    color: #ffffff; /* Branco no container laranja */
+    color: #ffffff;
     font-weight: bold;
     margin-right: 0.8rem;
   }
   
   .benefits-section:nth-child(2) li::before {
-    color: #457b9d; /* Azul médio para o container azul */
+    color: #457b9d;
   }
   
   .benefits-section li strong {
     flex-shrink: 0;
-    width: 10rem; /* Define uma largura fixa para alinhar os textos */
+    width: 10rem;
   }
   
   .benefits-section li span {
