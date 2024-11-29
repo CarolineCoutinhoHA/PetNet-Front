@@ -20,14 +20,14 @@ const Carousel: React.FC = () => {
     },
     {
       src: image2,
-      title: "Fazendo a Diferença",
+      title: "Fazendo a diferença",
       description: "Com a sua adoção, você ajuda a mudar a vida de um pet abandonado.",
       buttonText: "Adotar Agora",
       buttonLink: "/adocao",
     },
     {
       src: image3,
-      title: "Histórias de Adoção",
+      title: "Histórias de adoção",
       description: "Veja as lindas histórias de adoção que transformaram vidas.",
       buttonText: "Leia as Histórias",
       buttonLink: "/historias",
@@ -74,13 +74,6 @@ const Carousel: React.FC = () => {
           ></div>
         ))}
       </div>
-
-      {/* Setinha para próxima imagem */}
-      <button className="carousel-arrow" onClick={nextImage} aria-label="Próxima imagem">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
-          <path d="M8.59 16.59L13.17 12l-4.58-4.59L10 6l6 6-6 6-1.41-1.41z" />
-        </svg>
-      </button>
     </section>
   );
 };
