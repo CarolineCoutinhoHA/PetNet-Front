@@ -7,7 +7,6 @@ import Footer from './components/Footer/Footer';
 import AdoptionBenefits from './components/Benefits/Benefits';
 import FAQs from './components/FAQs/FAQs';
 import Carousel from './components/Carousel/Carousel';
-import ImpactAdoptionInfographic from './components/Impact/impact';
 import About from './components/About/About';
 import AdotantesForm from './pages/AdotantesForm/AdotantesForm';
 import LoginForm from './pages/LoginForm/LoginForm';
@@ -30,7 +29,6 @@ const App = () => {
                 <About />
                 <Fluxogram />
                 <AdoptionBenefits />
-                <ImpactAdoptionInfographic />
                 <FAQs />
                 <Testimonials />
               </>
