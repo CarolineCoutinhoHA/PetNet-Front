@@ -24,14 +24,18 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     console.log('Login data:', loginData);
 
-    // Redirecionamento com base no tipo de usuário
+    // Simulação de login (substitua por lógica de backend)
     if (loginData.userType === 'adotante') {
-      navigate('/dashboard-adotante');
+      // Salva o token ou status de login para adotante
+      localStorage.setItem('authToken', 'adotante_token'); // Exemplo de token
+      navigate('/profile'); // Redireciona para a página de perfil do adotante
     } else {
-      navigate('/dashboard-admin');
+      // Salva o token ou status de login para admin
+      localStorage.setItem('authToken', 'admin_token');
+      navigate('/admin-dashboard'); // Redireciona para o painel do administrador
     }
 
-    setLoginData({ email: '', password: '', userType: 'adotante' }); // Resetando o formulário
+    setLoginData({ email: '', password: '', userType: 'adotante' }); // Reseta o formulário
   };
 
   const redirectToCadastro = () => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Importar useNavigate
+import { useNavigate } from 'react-router-dom';
 import './AdotantesForm.css'; // Certifique-se de que o arquivo CSS esteja correto
 import logoPet from '../../assets/pets1.png'; // Imagem para o formulário
 
@@ -24,23 +24,43 @@ const AdotantesForm: React.FC<AdotantesFormProps> = ({ showSuccessMessage, showE
     setFormData({ ...formData, [name]: value });
   };
 
+  // Função para validar o formulário
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
 
+    // Validação de nome
     if (!formData.nome) newErrors.nome = 'O nome é obrigatório!';
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Digite um e-mail válido!';
-    if (!formData.telefone) newErrors.telefone = 'O telefone é obrigatório!';
-    if (!formData.senha) newErrors.senha = 'A senha é obrigatória!';
-    else if (formData.senha.length < 6) newErrors.senha = 'A senha deve ter pelo menos 6 caracteres!';
+
+    // Validação de e-mail (verificando se contém @ e .com)
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Digite um e-mail válido (deve conter @ e .com)!';
+    }
+
+    // Validação de telefone (precisa ter 9 caracteres)
+    if (!formData.telefone) {
+      newErrors.telefone = 'O telefone é obrigatório!';
+    } else if (formData.telefone.length !== 9) {
+      newErrors.telefone = 'O telefone deve ter 9 dígitos!';
+    }
+
+    // Validação de senha (precisa ter pelo menos 6 caracteres)
+    if (!formData.senha) {
+      newErrors.senha = 'A senha é obrigatória!';
+    } else if (formData.senha.length < 6) {
+      newErrors.senha = 'A senha deve ter pelo menos 6 caracteres!';
+    }
 
     return newErrors;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Valida o formulário e retorna os erros
     const validationErrors = validateForm();
     setErrors(validationErrors);
 
+    // Se não houver erros, exibe a mensagem de sucesso
     if (Object.keys(validationErrors).length === 0) {
       showSuccessMessage('Cadastro realizado com sucesso!');
       setFormData({ nome: '', email: '', telefone: '', senha: '' });
@@ -69,6 +89,7 @@ const AdotantesForm: React.FC<AdotantesFormProps> = ({ showSuccessMessage, showE
                 onChange={handleChange}
                 required
               />
+              {errors.nome && <div className="error-message">{errors.nome}</div>}
             </label>
 
             <label htmlFor="email">
@@ -81,6 +102,7 @@ const AdotantesForm: React.FC<AdotantesFormProps> = ({ showSuccessMessage, showE
                 onChange={handleChange}
                 required
               />
+              {errors.email && <div className="error-message">{errors.email}</div>}
             </label>
 
             <label htmlFor="telefone">
@@ -93,6 +115,7 @@ const AdotantesForm: React.FC<AdotantesFormProps> = ({ showSuccessMessage, showE
                 onChange={handleChange}
                 required
               />
+              {errors.telefone && <div className="error-message">{errors.telefone}</div>}
             </label>
 
             <label htmlFor="senha">
@@ -105,12 +128,8 @@ const AdotantesForm: React.FC<AdotantesFormProps> = ({ showSuccessMessage, showE
                 onChange={handleChange}
                 required
               />
+              {errors.senha && <div className="error-message">{errors.senha}</div>}
             </label>
-
-            {errors.nome && <div className="error-message">{errors.nome}</div>}
-            {errors.email && <div className="error-message">{errors.email}</div>}
-            {errors.telefone && <div className="error-message">{errors.telefone}</div>}
-            {errors.senha && <div className="error-message">{errors.senha}</div>}
 
             <div className="form-buttons">
               <button type="submit" className="btn-submit">Cadastrar</button>

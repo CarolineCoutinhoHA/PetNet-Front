@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import "./Testimonials.css";
-
-// Importando as imagens da pasta assets
-import mariaFoto from '../../assets/MariSilva.jpg';
-import joaoFoto from '../../assets/JoaoSantos.jpg';
-import anaFoto from '../../assets/AnaCosta.jpg';
-import carlosFoto from '../../assets/CarlosPereira.jpg';
+import mariaFoto from "../../assets/MariSilva.jpg";
+import joaoFoto from "../../assets/JoaoSantos.jpg";
+import anaFoto from "../../assets/AnaCosta.jpg";
+import carlosFoto from "../../assets/CarlosPereira.jpg";
 
 const testimonialsData = [
   {
@@ -43,6 +41,12 @@ const Testimonials = () => {
 
   const nextTestimonial = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonialsData.length);
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonialsData.length) % testimonialsData.length
+    );
   };
 
   useEffect(() => {
@@ -86,17 +90,28 @@ const Testimonials = () => {
             </div>
           </div>
           <div className="testimonials-navigation">
+            <div
+              className="arrow-prev"
+              onClick={prevTestimonial}
+              aria-label="Testemunho Anterior"
+            >
+              &lsaquo;
+            </div>
             <div className="dot-navigation">
               {testimonialsData.map((_, index) => (
                 <span
                   key={index}
                   className={`dot ${currentIndex === index ? "active" : ""}`}
                   onClick={() => setCurrentIndex(index)}
+                  aria-label={`Testemunho ${index + 1}`}
                 ></span>
               ))}
             </div>
-            {/* Seta minimalista à direita */}
-            <div className="arrow-next" onClick={nextTestimonial}>
+            <div
+              className="arrow-next"
+              onClick={nextTestimonial}
+              aria-label="Próximo Testemunho"
+            >
               &rsaquo;
             </div>
           </div>

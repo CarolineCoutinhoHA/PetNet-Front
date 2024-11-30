@@ -1,88 +1,96 @@
 /* Fluxograma Container */
 .fluxogram-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
-    gap: 15px; /* Espaço entre os itens */
-    padding: 50px 20px;
-    margin-top: 20px;
-    background-color: #f9f9f9;
-    align-items: stretch; /* Garante que todos os containers tenham a mesma altura */
-  }
-  
-  /* Título dentro do Fluxograma */
-  .fluxogram-title {
-    grid-column: 1 / -1; /* Faz o título ocupar toda a largura */
-    text-align: center;
-    font-size: 2rem; /* Tamanho maior */
-    font-weight: 600;
-    color: #1d3557; /* Azul escuro */
-    margin-bottom: 2rem;
-    border-bottom: 3px solid #f4a261; /* Linha laranja */
-    display: inline-block;
-    padding-bottom: 0.5rem;
-    width: 50%; /* Reduz a largura da linha */
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Fluxograma Item */
-  .fluxogram-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease;
-    height: 100%; /* Garantir que os itens tenham altura flexível */
-  }
-  
-  /* Efeito de aumento ao passar o mouse */
-  .fluxogram-item:hover {
-    transform: scale(1.05); /* Aumenta o tamanho do item */
-  }
-  
-  /* Imagem do Fluxograma */
-  .fluxogram-image {
-    width: 100%;
-    height: 150px; /* Altura da imagem */
-    overflow: hidden;
-    border-radius: 4px;
-  }
-  
-  .fluxogram-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Texto do Fluxograma */
-  .fluxogram-text {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%; /* Faz com que o texto e botão ocupem o espaço disponível */
-  }
-  
-  /* Botão do Fluxograma */
-  .fluxogram-btn {
-    background-color: #8834D1;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-    margin-top: 30px; /* Aumentando o espaço para o botão descer mais */
-  }
-  
-  .fluxogram-btn:hover {
-    background-color: #5AD2F4;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+  margin-top: 150px;
+  background-color: #f8f8f8;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Título do Fluxograma */
+.fluxogram-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1d3557;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 4px solid #f4a261;
+  padding-bottom: 10px;
+}
+
+/* Estilo dos Itens */
+.fluxogram-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 30px;
+}
+
+/* Imagens dos Itens */
+.fluxogram-image img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: opacity 0.3s ease;
+}
+
+.fluxogram-image img[loading="lazy"] {
+  opacity: 0;
+}
+
+.fluxogram-image img.lazyloaded {
+  opacity: 1;
+}
+
+/* Texto dos Itens */
+.fluxogram-text {
+  flex-grow: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+.fluxogram-text h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.fluxogram-text p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Setas entre os Itens */
+.fluxogram-arrow {
+  font-size: 3rem;
+  color: #f4a261;
+  text-align: center;
+  transition: color 0.2s ease-in-out;
+  margin-top: 10px;
+}
+
+.fluxogram-arrow:hover {
+  color: #e76f51;
+}
+
+/* Ícone de Sucesso no Último Item */
+.fluxogram-success-icon {
+  font-size: 3rem;
+  color: #2a9d8f;
+  margin-top: 10px;
+}

@@ -1,12 +1,15 @@
 .benefits-container {
-    padding: 2rem;
-    background-color: #ffffff; /* Fundo branco geral */
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1200px; /* Aumentado para 1200px, ajuste conforme necessário */
-    margin: 3rem auto;
-    font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background-color: #ffffff; /* Fundo branco geral */
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 80px; /* Espaço superior ajustado */
+  margin-left: auto; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+  max-width: 1200px; /* Aumentado para 1200px, ajuste conforme necessário */
+  font-family: 'Poppins', sans-serif;
 }
+
   
   .benefits-title {
     font-size: 2rem; /* Tamanho do título */
