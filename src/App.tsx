@@ -16,8 +16,6 @@ import ScrollToTop from './ScrollToTop';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './pages/AdotantesForm/AdotantesForm.css';
 
-
-
 const App: React.FC = () => {
   const [message, setMessage] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<'success' | 'error' | null>(null);

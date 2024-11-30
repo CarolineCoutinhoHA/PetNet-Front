@@ -7,12 +7,12 @@ const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
-    userType: 'adotante', // Valor padrão: adotante
+    userType: 'adotante', // Assuming you want a userType to differentiate
   });
 
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setLoginData((prevState) => ({
       ...prevState,
@@ -24,22 +24,20 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     console.log('Login data:', loginData);
 
-    // Simulação de login (substitua por lógica de backend)
+    // Simulate login (use backend logic here)
     if (loginData.userType === 'adotante') {
-      // Salva o token ou status de login para adotante
-      localStorage.setItem('authToken', 'adotante_token'); // Exemplo de token
-      navigate('/profile'); // Redireciona para a página de perfil do adotante
+      localStorage.setItem('authToken', 'adotante_token');
+      navigate('/profile'); // Redirect to the adopters' profile page
     } else {
-      // Salva o token ou status de login para admin
       localStorage.setItem('authToken', 'admin_token');
-      navigate('/admin-dashboard'); // Redireciona para o painel do administrador
+      navigate('/admin-dashboard'); // Redirect to the admin dashboard
     }
 
-    setLoginData({ email: '', password: '', userType: 'adotante' }); // Reseta o formulário
+    setLoginData({ email: '', password: '', userType: 'adotante' }); // Reset form
   };
 
   const redirectToCadastro = () => {
-    navigate('/cadastro-adotantes');
+    navigate('/cadastro-adotantes'); // Redirect to the registration page
   };
 
   return (
@@ -71,29 +69,18 @@ const LoginForm: React.FC = () => {
             />
           </label>
 
-          {/* Grupo de seleção do tipo de usuário */}
-          <div className="checkbox-group">
-            <label>
-              <input
-                type="radio"
-                name="userType"
-                value="adotante"
-                checked={loginData.userType === 'adotante'}
-                onChange={handleChange}
-              />
-              Adotante
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="userType"
-                value="admin"
-                checked={loginData.userType === 'admin'}
-                onChange={handleChange}
-              />
-              Administrador
-            </label>
-          </div>
+          {/* Optionally add a user type selector */}
+          <label>
+            Tipo de usuário:
+            <select
+              name="userType"
+              value={loginData.userType}
+              onChange={handleChange}
+            >
+              <option value="adotante">Adotante</option>
+              <option value="administrador">Administrador</option>
+            </select>
+          </label>
 
           <div className="form-buttons">
             <button type="submit">Entrar</button>

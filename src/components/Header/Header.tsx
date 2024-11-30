@@ -29,7 +29,7 @@ const Header: React.FC = () => {
         <nav>
           <Link to="/">Início</Link> {/* Link para a página inicial */}
           <Link to="/about">Sobre Nós</Link> {/* Link para a página About */}
-          <Link to="/contato">Contato</Link> {/* Link atualizado para a página de Contato */}
+          <Link to="/contato">Contato</Link> {/* Link para a página de Contato */}
           <Link to="/login">Login</Link>
         </nav>
       </div>
