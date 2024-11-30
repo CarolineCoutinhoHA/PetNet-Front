@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Fluxogram.css';
 import fluxo1 from '../../assets/fluxo1.png';
 import fluxo2 from '../../assets/fluxo2.png';
@@ -45,6 +45,31 @@ const fluxogramItems = [
 ];
 
 const Fluxogram: React.FC = () => {
+  useEffect(() => {
+    const images = document.querySelectorAll('img[data-src]'); // Seleciona as imagens com 'data-src'
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          img.src = img.dataset.src || ''; // Carrega a imagem
+          img.classList.add('lazyloaded'); // Adiciona a classe para animação
+          observer.unobserve(img); // Para de observar a imagem
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, options);
+    images.forEach((image) => observer.observe(image));
+
+  }, []);
+
   return (
     <div className="fluxogram-container">
       <h1 className="fluxogram-title">Passo a passo para adotar</h1>

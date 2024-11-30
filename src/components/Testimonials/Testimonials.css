@@ -11,11 +11,12 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-top: 60px; 
+    margin-left: auto;
+    margin-right: auto;
     gap: 50px;
     position: relative;
-  }
-  
+}
   .dog-paw {
     position: absolute;
     left: 5%;

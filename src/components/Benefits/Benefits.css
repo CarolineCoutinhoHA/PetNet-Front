@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 .benefits-container {
-    background-color: #ffffff;
-    margin: 0;
-    padding: 20px;
+    padding: 2rem;
+    background-color: #ffffff; /* Fundo branco geral */
+    border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    font-family: Poppins, sans-serif;
+    max-width: 1200px; /* Aumentado para 1200px, ajuste conforme necessário */
+    margin: 3rem auto;
+    font-family: 'Poppins', sans-serif;
 }
+
   
   .benefits-title {
     font-size: 2rem;
