@@ -3,7 +3,6 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import AdoptionBenefits from "../../components/Benefits/Benefits";
 import FAQs from "../../components/FAQs/FAQs";
 import Carousel from "../../components/Carousel/Carousel";
-import ImpactAdoptionInfographic from "../../components/Impact/impact";
 import About from "../../components/About/About";
 
 const LandingPage = () => {
@@ -13,7 +12,6 @@ const LandingPage = () => {
       <About />
       <Fluxogram />
       <AdoptionBenefits />
-      <ImpactAdoptionInfographic />
       <FAQs />
       <Testimonials />
     </>

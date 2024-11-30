@@ -20,7 +20,6 @@ const Footer = () => {
           <a href="#carousel">Início</a>
           <a href="#adoption-flow">Como Adotar</a>
           <a href="#testimonials">Depoimentos</a>
-          <a href="#footer">Contato</a>
         </div>
       </div>
 

@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 .header {
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: flex;
   margin: 0;
   padding: 0;
+  font-family: Poppins, sans-serif;
   background-color: #ffffff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -56,7 +56,7 @@ nav a, nav .link {
 }
 
 nav a:hover {
-  color: #f76c6c;
+  color: #8834D1;
 }
 
 @media screen and (max-width: 768px) {

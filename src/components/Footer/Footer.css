@@ -1,31 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Contêiner principal do Footer */
 .footer-container {
-  background-color: #ff9d00;
-  padding: 40px 20px;
+  background-color: #2A7FED;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  width: 100vw; /* Ocupa a largura total da janela */
-
-  padding: 0; /* Remove padding que pode atrapalhar */
-  box-sizing: border-box; /* Inclui padding e borda no cálculo da largura */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Conteúdo principal do Footer */
 .footer-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Define um limite para o conteúdo interno */
-  width: 100%; /* O conteúdo interno ocupa toda a largura disponível */
-  padding: 0 20px; /* Espaçamento interno para evitar que o texto encoste nas bordas */
+  width: 100%;
+  padding: 1rem;
   margin-bottom: 30px;
 }
 
-/* Seção de logo e descrição */
 .footer-logo-description {
   display: flex;
   align-items: center;
@@ -49,7 +42,6 @@
   line-height: 1.5;
 }
 
-/* Links úteis no footer */
 .footer-links {
   display: flex;
   gap: 25px;
@@ -69,19 +61,17 @@
   color: #a911f0;
 }
 
-/* Seção de redes sociais e email */
 .footer-social-email {
   display: flex;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ajusta ao tamanho total do footer */
-  max-width: 1200px; /* Limita a largura para evitar que fique muito esticado */
   margin-top: 20px;
 }
 
 .footer-social {
   display: flex;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .footer-social a {
@@ -105,17 +95,15 @@
   color: #a911f0;
 }
 
-/* Linha inferior do Footer */
 .footer-bottom {
   text-align: center;
-  margin-top: 30px;
+  margin: 1.2rem;
   font-size: 14px;
-  color: #ffffff;
+  color: rgb(255,255,255, 0.5);
   font-weight: 300;
-  width: 100%; /* Ajusta ao tamanho total */
+  width: 100%;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -145,7 +133,4 @@
     margin-top: 10px;
   }
 
-  .footer-social {
-    margin-top: 15px;
-  }
 }

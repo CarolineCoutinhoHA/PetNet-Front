@@ -1,185 +1,169 @@
-import React, { useState } from 'react';
-import './AdotantesForm.css';
-import logoPet from '../../assets/pets1.png';  // Importando a imagem diretamente
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./AdotantesForm.css"; // Certifique-se de que o arquivo CSS esteja correto
+import logoPet from "../../assets/pets1.png"; // Imagem para o formulário
 
 const AdotantesForm: React.FC = () => {
-  const [adotante, setAdotante] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    dataNascimento: '',
-    genero: '',
-    experienciaComPets: false,
-    casaAdequada: false,
-    jaAdotou: false,
+  const [formData, setFormData] = useState({
+    nome: "",
+    email: "",
+    telefone: "",
+    senha: "",
+    tipo: "adotante", // Valor padrão como 'adotante'
   });
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, type, value } = e.target;
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const navigate = useNavigate();
 
-    if (type === 'checkbox') {
-      setAdotante((prevState) => ({
-        ...prevState,
-        [name]: !prevState[name as keyof typeof adotante],
-      }));
-    } else {
-      setAdotante((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.nome) newErrors.nome = "O nome é obrigatório!";
+    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Digite um e-mail válido (deve conter @ e .com)!";
     }
+    if (!formData.telefone) newErrors.telefone = "O telefone é obrigatório!";
+    if (formData.telefone.length !== 9)
+      newErrors.telefone = "O telefone deve ter 9 dígitos!";
+    if (!formData.senha) newErrors.senha = "A senha é obrigatória!";
+    if (formData.senha.length < 6)
+      newErrors.senha = "A senha deve ter pelo menos 6 caracteres!";
+
+    return newErrors;
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Adotante cadastrado:', adotante);
-    alert('Adotante cadastrado com sucesso!');
-    setAdotante({
-      nome: '',
-      email: '',
-      telefone: '',
-      dataNascimento: '',
-      genero: '',
-      experienciaComPets: false,
-      casaAdequada: false,
-      jaAdotou: false,
-    });
+
+    const validationErrors = validateForm();
+    setErrors(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      alert("Cadastro realizado com sucesso!");
+      setFormData({
+        nome: "",
+        email: "",
+        telefone: "",
+        senha: "",
+        tipo: "adotante",
+      });
+    } else {
+      alert("Por favor, corrija os erros no formulário.");
+    }
   };
 
-  const redirectToLogin = () => {
-    window.location.href = '/login';
+  const handleRedirectToLogin = () => {
+    navigate("/login"); // Supondo que a rota do login seja '/login'
   };
 
   return (
     <div className="adotantes-form-page">
-      {/* Container do formulário */}
       <div className="adotantes-form-container">
         <div className="form-container">
-          <h2>Cadastro de Adotantes</h2>
+          <h2>Cadastro</h2>
           <form onSubmit={handleSubmit}>
+            {/* Nome Completo */}
             <label htmlFor="nome">
               Nome Completo:
               <input
                 type="text"
                 id="nome"
                 name="nome"
-                value={adotante.nome}
+                value={formData.nome}
                 onChange={handleChange}
                 required
               />
+              {errors.nome && <div className="error-message">{errors.nome}</div>}
             </label>
 
+            {/* E-mail */}
             <label htmlFor="email">
               E-mail:
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={adotante.email}
+                value={formData.email}
                 onChange={handleChange}
                 required
               />
+              {errors.email && <div className="error-message">{errors.email}</div>}
             </label>
 
+            {/* Telefone */}
             <label htmlFor="telefone">
               Telefone:
               <input
                 type="tel"
                 id="telefone"
                 name="telefone"
-                value={adotante.telefone}
+                value={formData.telefone}
                 onChange={handleChange}
                 required
               />
+              {errors.telefone && <div className="error-message">{errors.telefone}</div>}
             </label>
 
-            <label htmlFor="dataNascimento">
-              Data de Nascimento:
+            {/* Senha */}
+            <label htmlFor="senha">
+              Senha:
               <input
-                type="date"
-                id="dataNascimento"
-                name="dataNascimento"
-                value={adotante.dataNascimento}
+                type="password"
+                id="senha"
+                name="senha"
+                value={formData.senha}
                 onChange={handleChange}
                 required
               />
+              {errors.senha && <div className="error-message">{errors.senha}</div>}
             </label>
 
-            <label htmlFor="genero">
-              Gênero:
-              <select
-                id="genero"
-                name="genero"
-                value={adotante.genero}
-                onChange={handleChange}
-                required
-              >
-                <option value="">Selecione</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-                <option value="outro">Outro</option>
-              </select>
-            </label>
-
-            {/* Checkbox - Experiência com pets */}
+            {/* Tipo de usuário */}
             <div className="checkbox-group">
-              <label htmlFor="experienciaComPets" className="checkbox-label">
+              <p>Tipo de usuário:</p>
+              <label className="checkbox-label">
                 <input
-                  type="checkbox"
-                  id="experienciaComPets"
-                  name="experienciaComPets"
+                  type="radio"
+                  name="tipo"
+                  value="adotante"
+                  checked={formData.tipo === "adotante"}
                   onChange={handleChange}
-                  checked={adotante.experienciaComPets}
                 />
-                Possui experiência com pets
+                Adotante
+              </label>
+              <label className="checkbox-label">
+                <input
+                  type="radio"
+                  name="tipo"
+                  value="administrador"
+                  checked={formData.tipo === "administrador"}
+                  onChange={handleChange}
+                />
+                Administrador
               </label>
             </div>
 
-            {/* Checkbox - Local Adequado para o Pet */}
-            <div className="checkbox-group">
-              <label htmlFor="casaAdequada" className="checkbox-label">
-                <input
-                  type="checkbox"
-                  id="casaAdequada"
-                  name="casaAdequada"
-                  onChange={handleChange}
-                  checked={adotante.casaAdequada}
-                />
-                Tenho um local adequado para o pet
-              </label>
-            </div>
-
-            {/* Checkbox - Já Adotou Animal Antes */}
-            <div className="checkbox-group">
-              <label htmlFor="jaAdotou" className="checkbox-label">
-                <input
-                  type="checkbox"
-                  id="jaAdotou"
-                  name="jaAdotou"
-                  onChange={handleChange}
-                  checked={adotante.jaAdotou}
-                />
-                Já adotei um animal antes
-              </label>
-            </div>
-
+            {/* Botões */}
             <div className="form-buttons">
-              <button type="submit">Cadastrar</button>
-              <button type="button" onClick={redirectToLogin}>
+              <button type="submit" className="btn-submit">Cadastrar</button>
+              <button
+                type="button"
+                onClick={handleRedirectToLogin}
+                className="btn-login"
+              >
                 Já tenho cadastro
               </button>
             </div>
           </form>
         </div>
-        {/* Container da imagem */}
+
         <div className="image-container">
-          <img
-            src={logoPet}  // Usando a importação direta
-            alt="Adote um amigo"
-            className="adoption-image"
-          />
+          <img src={logoPet} alt="Adote um amigo" className="adoption-image" />
         </div>
       </div>
     </div>
