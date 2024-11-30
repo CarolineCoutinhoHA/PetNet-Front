@@ -1,4 +1,5 @@
-/* Estilos gerais para a seção FAQ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 .faqs {
     padding: 60px 20px;
     background-color: #f9f9f9; /* Cor suave e moderna para o fundo */

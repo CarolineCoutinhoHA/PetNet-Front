@@ -7,7 +7,6 @@ const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
-    userType: 'adotante', // Valor padrão: adotante
   });
 
   const navigate = useNavigate();
@@ -24,14 +23,10 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     console.log('Login data:', loginData);
 
-    // Redirecionamento com base no tipo de usuário
-    if (loginData.userType === 'adotante') {
-      navigate('/dashboard-adotante');
-    } else {
-      navigate('/dashboard-admin');
-    }
+    // Redirecionamento padrão após o login
+    navigate('/dashboard');
 
-    setLoginData({ email: '', password: '', userType: 'adotante' }); // Resetando o formulário
+    setLoginData({ email: '', password: '' }); // Resetando o formulário
   };
 
   const redirectToCadastro = () => {
@@ -66,30 +61,6 @@ const LoginForm: React.FC = () => {
               required
             />
           </label>
-
-          {/* Grupo de seleção do tipo de usuário */}
-          <div className="checkbox-group">
-            <label>
-              <input
-                type="radio"
-                name="userType"
-                value="adotante"
-                checked={loginData.userType === 'adotante'}
-                onChange={handleChange}
-              />
-              Adotante
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="userType"
-                value="admin"
-                checked={loginData.userType === 'admin'}
-                onChange={handleChange}
-              />
-              Administrador
-            </label>
-          </div>
 
           <div className="form-buttons">
             <button type="submit">Entrar</button>
