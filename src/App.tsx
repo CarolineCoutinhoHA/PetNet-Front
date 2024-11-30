@@ -1,21 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
-import Header from './components/Header/Header';
-import Fluxogram from './components/Fluxogram/Fluxogram';
-import Testimonials from './components/Testimonials/Testimonials';
-import Footer from './components/Footer/Footer';
-import AdoptionBenefits from './components/Benefits/Benefits';
-import FAQs from './components/FAQs/FAQs';
-import Carousel from './components/Carousel/Carousel';
-import About from './components/About/About';  // Importação do componente About
-import AdotantesForm from './pages/AdotantesForm/AdotantesForm';
-import LoginForm from './pages/LoginForm/LoginForm';
-import Profile from './pages/profile/Profile';
-import Contact from './pages/contact/Contact';
-import ScrollToTop from './ScrollToTop';
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import AdotantesForm from "./pages/AdotantesForm/AdotantesForm";
+import LoginForm from "./pages/LoginForm/LoginForm";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import Pets from "./pages/Pets/Pets";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import './pages/AdotantesForm/AdotantesForm.css';
-
+import './index.css';
+import About from "./components/About/About";
+import ScrollToTop from "./ScrollToTop";
+import Profile from "./pages/profile/Profile";
+import Contact from "./pages/contact/Contact";
 const App: React.FC = () => {
   const [message, setMessage] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<'success' | 'error' | null>(null);
@@ -37,10 +34,9 @@ const App: React.FC = () => {
       setMessageType(null);
     }, 5000);
   };
-
   return (
     <Router>
-      <div className="app">
+      <div className="flex flex-col min-h-screen">
         <Header />
         
         {/* Exibindo mensagem de sucesso ou erro */}
@@ -53,19 +49,8 @@ const App: React.FC = () => {
         <ScrollToTop /> {/* Garantir que o scroll vá para o topo */}
 
         <Routes>
-          {/* Página inicial (Landing Page) */}
-          <Route 
-            path="/" 
-            element={(
-              <>
-                <Carousel />
-                <Fluxogram />
-                <AdoptionBenefits />
-                <FAQs />
-                <Testimonials />
-              </>
-            )} 
-          />
+          {/* Página inicial */}
+          <Route path="/" element={<LandingPage />} />
 
           {/* Página de About (Sobre) */}
           <Route path="/about" element={<About />} />
@@ -74,6 +59,8 @@ const App: React.FC = () => {
           <Route path="/login" element={<LoginForm />} />
           
           {/* Página de cadastro de adotantes */}
+
+          <Route path="/pets" element={<Pets />} />
           <Route 
             path="/cadastro-adotantes" 
             element={(

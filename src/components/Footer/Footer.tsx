@@ -3,7 +3,7 @@ import logoPet from '../../assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="footer-container">
+    <footer className="mt-auto footer-container">
       <div className="footer-content">
         {/* Logo e Descrição */}
         <div className="footer-logo-description">
