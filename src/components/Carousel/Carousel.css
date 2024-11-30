@@ -49,6 +49,30 @@
   text-align: start;
 }
 
+/* Bolinhas de Navegação */
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ee7124;
+  transform: scale(1.2);
+} 
 .carousel-button {
   display: inline-block;
   padding: 14px 30px;
@@ -67,84 +91,4 @@
   box-shadow: 0 12px 20px rgba(255, 82, 82, 0.5);
   color: #fff;
   background: linear-gradient(90deg, #ff9752, #f7731b);
-}
-
-.carousel-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ccc;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.dot.active {
-  background-color: #ee7124;
-  transform: scale(1.2);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-slide {
-    height: auto;
-  }
-
-  .carousel-slide-content {
-    max-width: 100%;
-    left: 10%;
-    padding: 10px;
-  }
-
-  .carousel-slide-content h2 {
-    font-size: 1.8rem;
-  }
-
-  .carousel-slide-content p {
-    font-size: 1rem;
-  }
-
-  .carousel-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-slide {
-    height: 300px;
-  }
-
-  .carousel-slide-content {
-    max-width: 50%;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-  }
-
-  .carousel-slide-content h2 {
-    font-size: 1.5rem;
-  }
-
-  .carousel-button {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
 }

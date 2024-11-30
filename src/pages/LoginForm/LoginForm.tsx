@@ -7,11 +7,12 @@ const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
+    userType: 'adotante', // Assuming you want a userType to differentiate
   });
 
   const navigate = useNavigate();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setLoginData((prevState) => ({
       ...prevState,
@@ -23,14 +24,20 @@ const LoginForm: React.FC = () => {
     e.preventDefault();
     console.log('Login data:', loginData);
 
-    // Redirecionamento padrão após o login
-    navigate('/dashboard');
+    // Simulate login (use backend logic here)
+    if (loginData.userType === 'adotante') {
+      localStorage.setItem('authToken', 'adotante_token');
+      navigate('/profile'); // Redirect to the adopters' profile page
+    } else {
+      localStorage.setItem('authToken', 'admin_token');
+      navigate('/admin-dashboard'); // Redirect to the admin dashboard
+    }
 
-    setLoginData({ email: '', password: '' }); // Resetando o formulário
+    setLoginData({ email: '', password: '', userType: 'adotante' }); // Reset form
   };
 
   const redirectToCadastro = () => {
-    navigate('/cadastro-adotantes');
+    navigate('/cadastro-adotantes'); // Redirect to the registration page
   };
 
   return (
@@ -60,6 +67,19 @@ const LoginForm: React.FC = () => {
               onChange={handleChange}
               required
             />
+          </label>
+
+          {/* Optionally add a user type selector */}
+          <label>
+            Tipo de usuário:
+            <select
+              name="userType"
+              value={loginData.userType}
+              onChange={handleChange}
+            >
+              <option value="adotante">Adotante</option>
+              <option value="administrador">Administrador</option>
+            </select>
           </label>
 
           <div className="form-buttons">

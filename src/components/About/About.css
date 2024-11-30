@@ -1,16 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-*{
-  margin: 0;
-  box-sizing: border-box;
-}
-
+/* Estilos gerais para a seção "Sobre" */
 .about-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 60px 10%; /* Ajuste o padding conforme necessário */
     background-color: #f9f9f9;
-    padding: 4rem;
     gap: 40px; /* Adicionando espaço entre o texto e a imagem */
   }
   
@@ -20,26 +14,26 @@
   
   .about-title {
     font-size: 2.5rem;
-    color: black;
-    font-weight: bold;
+    color: #f76c6c; /* Cor do título */
     margin-bottom: 15px;
     font-weight: bold;
   }
   
   .about-description {
     font-size: 1.2rem;
-    color: black;
-    text-align: center;
+    color: #333; /* Cor do texto */
+    line-height: 1.6;
   }
-
-  .about-description span{
-    color: #EE7124;
-    font-weight: bold;
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
   }
   
   .about-image img {
     width: 100%;
-    max-width: 600px; /* Ajuste a largura da imagem conforme necessário */
+    max-width: 500px; /* Ajuste a largura da imagem conforme necessário */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras na imagem */
   }
