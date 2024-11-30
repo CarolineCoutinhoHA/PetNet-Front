@@ -12,7 +12,7 @@ const Card = ({ pet, onAdoptionClick }: { pet: Pet, onAdoptionClick: (id: number
   return (
     <div
       className="bg-petnet-white flex flex-col items-center 
-    justify-start  w-full sm:w-2/12 sm:flex-grow-0 p-4 gap-y-2 text-petnet-purple rounded-md"
+    justify-start w-full sm:w-1/5 flex-grow p-6 gap-x-2 text-petnet-purple rounded-md"
     >
       <img className="w-full h-44 object-cover rounded-md" src={pet.picture} />
       <p className="text-petnet-purple font-medium">{pet.nome}</p>
@@ -49,7 +49,7 @@ const Card = ({ pet, onAdoptionClick }: { pet: Pet, onAdoptionClick: (id: number
       </div>
 
       <div className="mt-auto w-full">
-        <button className="bg-petnet-blue text-white font-semibold rounded-md w-full py-2" onClick={handleClick}>
+        <button className="bg-petnet-blue text-white font-semibold rounded-md w-full py-2 mt-2" onClick={handleClick}>
           Adotar
         </button>
       </div>

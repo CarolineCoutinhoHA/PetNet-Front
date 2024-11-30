@@ -59,9 +59,9 @@ const Pets = () => {
   };
 
   return (
-    <section className="h-full w-full mt-28 flex flex-col items-center bg-petnet-purple">
+    <section className="h-screen mt-24 flex flex-col items-center bg-petnet-purple overflow-y-auto p-6">
       <Filter onButtonClick={handleClearFilters} onSearch={filterPets} />
-      <div className="flex flex-wrap gap-4 w-full p-6 justify-center">
+      <div className="mt-6 w-full flex items-stretch justify-start flex-wrap gap-4">
         {filteredPets.map((pet) => (
           <Card key={pet.id} pet={pet} onAdoptionClick={handleAdoption} />
         ))}

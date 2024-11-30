@@ -25,9 +25,15 @@ a:hover {
 body {
   margin: 0;
 
-  min-width: 320px;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o body tenha pelo menos a altura da tela */
+  margin: 0; /* Remove margens padrão do body */
   overflow-x: hidden;
+}
+
+main {
+  flex: 1;
 }
 
 h1 {
